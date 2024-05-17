@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h2>Enter Mileage Data</h2>
+  <form hx-post="/submit-mileage" hx-target="#response" method="post">
+    <div class="mb-3">
+      <label for="odometerStart" class="form-label">Odometer Start</label>
+      <input type="number" class="form-control" id="odometerStart" placeholder="Odometer Start" name="odometer_start" min="0">
+    </div>
+    <div class="mb-3">
+      <label for="odometerEnd" class="form-label">Odometer End</label>
+      <input type="number" class="form-control" id="odometerEnd" name="odometer_end" placeholder="Odometer End" min="0">
+    </div>
+    <div class="mb-3">
+      <label for="totalMileage" class="form-label">Total Mileage</label>
+      <input type="number" class="form-control" id="totalMileage" name="total_mileage" placeholder="Total Mileage" min="0">
+    </div>
+    <div class="mb-3">
+      <label for="notes" class="form-label">Notes</label>
+      <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Additional notes..."></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="vehicleId" class="form-label">Vehicle</label>
+      <select class="form-select" id="vehicleId" name="vehicle_id">
+        <option selected>Select a vehicle</option>
+        {% for vehicle in vehicles %}
+        <option value="{{vehicle.id}}">{{vehicle.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div id="response"></div>
+</div>

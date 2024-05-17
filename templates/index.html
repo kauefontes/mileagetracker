@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Track Your Mileage</h1>
+  <p>do the tracking</p>
+  <ul>
+    {% for vehicle in vehicles %}
+    <li>{{ vehicle.name }}</li>
+    {% endfor %}
+  </ul>
+  <br/>
+  {% include 'partials/milage_form.html' %}
+{% endblock content %}
